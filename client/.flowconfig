@@ -1,0 +1,13 @@
+[ignore]
+
+[include]
+/src/App.js
+/src/components/Input.jsx
+/src/components/TodoList.jsx
+[libs]
+
+[lints]
+
+[options]
+
+[strict]
