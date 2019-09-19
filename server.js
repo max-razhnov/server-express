@@ -4,6 +4,19 @@ const bodyParser = require("body-parser");
 const app = express();
 const posts = require("./posts");
 
+// mongoose
+// const mongoose = require("mongoose");
+// mongoose.connect("mongodb://localhost:27017/test", {
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true
+// });
+
+// const Cat = mongoose.model("Cat", { name: String });
+// const Posts = mongoose.model("Posts");
+
+// const kitty = new Cat({ name: "Zildjian" });
+// kitty.save().then(() => console.log("meow"));
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -13,12 +26,12 @@ app.get("/", (request, response) => {
 });
 
 app.get("/posts", (req, res) => {
-  return res.send(posts);
+  return res.json(posts);
 });
 
 app.get("/posts/:id", (req, res) => {
   const { id } = req.params;
-  return res.send(posts[id]);
+  res.json(posts[id]);
 });
 
 app.post("/posts", (req, res) => {

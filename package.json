@@ -2,10 +2,12 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js",
-    "server": "nodemon index.js",
+    "client": "cd client && npm start",
+    "server": "concurrently \"nodemon server.js\" \"npm run open\"",
+    "open": "open-cli http://localhost:5000",
+    "dev": "concurrently \"npm run server\"  \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "max razhnov",
@@ -17,6 +19,7 @@
     "body-parser": "^1.19.0",
     "concurrently": "^4.1.2",
     "express": "^4.17.1",
+    "mongoose": "^5.7.0",
     "nodemon": "^1.19.2"
   }
 }
